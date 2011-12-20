@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <ImageButton android:id="@+id/info_icon" android:src="@drawable/iconinfo"
+                 android:layout_width="wrap_content" android:layout_height="wrap_content" 
+                 android:layout_marginRight="5dip" />
+    <ToggleButton android:id="@+id/toggle"
+                  android:layout_height="wrap_content" android:layout_width="wrap_content"
+                  android:layout_marginTop="2dip" android:layout_marginRight="5dip"
+                  android:textOn="@string/yes" android:textOff="@string/no" />
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+              android:layout_marginTop="10dip"  android:textSize="14sp" android:id="@+id/setting" />
+</LinearLayout>

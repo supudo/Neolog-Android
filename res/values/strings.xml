@@ -1,7 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="hello">Hello World, NeologActivity!</string>
     <string name="app_name">Neolog</string>
-
+    <string name="loading">Зареждане...</string>
+    <string name="menu_Words">Думи</string>
+    <string name="menu_SendWord">Изпрати дума</string>
+    <string name="menu_Settings">Настройки</string>
+    <string name="menu_Search">Търси</string>
+    <string name="menu_About">За Neolog</string>
+    <string name="no_data">Липсват данни.</string>
+    <string name="title_LettersAndNests">Избери...</string>
+    <string name="no">Не</string>
+    <string name="yes">Да</string>
+    <string name="tab_nests">Гнезда</string>
+    <string name="tab_letters">Букви</string>
+    <string name="close_alertbox">ОК</string>
+    <string name="contextmenu_view">Преглед</string>
+    <string name="contextmenu_viewcomments">Коментари</string>
+    <string name="contextmenu_sendcomments">Коментирай</string>
+    <string name="settings">Настройки</string>
+    <string name="about_StorePrivateData">Запази лични данни</string>
+    <string name="about_OnlineSearch">Онлайн търсене</string>
+    <string name="about_InAppEmail">In-App Email</string>
+    <string name="about_info_StorePrivateData">При публикуване на обява ще запазим вашите детайли, за да не ги въвеждате всеки път.</string>
+    <string name="about_info_OnlineSearch">Приложението ще търси онлайн с последни данни от сайта, или само в текущите до момента свалени на устройството.</string>
+    <string name="about_info_InAppEmail">Изпращането на имейл ще става през сайта, или директно през устройството. (Изисква се настроен имейл акаунт на устройството)</string>
 </resources>
+<!-- 
+
+"bg_Error" = "Грешка";
+"bg_OK" = "ОК";
+"bg_Settings" = "Настройки";
+"bg_RememberPrivateData" = "Помни име, имейл и URL";
+"bg_ExternalURLWarning" = "Това действие ще затвори текущото приложение и ще отвори Safari.\nСигурни ли сте?";
+"bg_NONO" = "Нене...";
+"bg_ButtonLanguage" = "Избери език";
+"bg_Language" = "Език";
+"bg_LanguageCancel" = "Откажи";
+"bg_LanguageSave" = "Запиши";
+"bg_ButtonAbout" = "За Neolog.bg";
+"bg_MissingReqFields" = "Изпуснали сте някои от задължителните полета.";
+"bg_ThankYou" = "Благодарим ви!";
+"bg_Description" = "Какво значи";
+"bg_Example" = "Примери";
+"bg_Ethimology" = "Етимология";
+"bg_Choose" = "Избери...";
+"bg_Nests" = "Гнезда";
+"bg_Nest" = "Гнездо";
+"bg_Letters" = "Букви";
+"bg_Bravo" = "Браво!";
+"bg_GO" = "Газ!";
+"bg_CommentsCount" = "Коментари";
+"bg_SendWord" = "Изпрати дума";
+"bg_SeeComments" = "Какво казват другите...";
+"bg_Search" = "Търсене";
+"bg_SearchTooSmall" = "Моля, въведете по-дълъг текст.";
+"bg_SearchNoResults" = "Нищо намерено.\nОпитайте с нещо друго...";
+"bg_Twitter.LoginError" = "Грешно потребителско име и/или парола.";
+"bg_Twitter.PublishOK" = "Чуруликането беше успешно";
+"bg_Twitter.PublishError" = "Възникна проблем при чуруликането.";
+"bg_Facebook.PublishOK" = "Обяват беше публикувана на вашата стена.";
+"bg_Facebook.PublishError" = "Възникна проблем при публикуване на вашата стена.";
+"bg_l_dr" = "др.";
+"bg_Tabbar_0" = "Думи";
+"bg_Tabbar_1" = "Изпрати дума";
+"bg_Tabbar_2" = "Настройки";
+"bg_SWName" = "Име/псевдоним:";
+"bg_SWEmail" = "Email:";
+"bg_SWURL" = "Вашият сайт:";
+"bg_SWWord" = "Думата:";
+"bg_SWNest" = "Гнездо:";
+"bg_SWDescription" = "Какво значи:";
+"bg_SWExample" = "Примери:";
+"bg_SWEthimology" = "Етимология (произход):";
+"bg_SWNestChoose" = "- - Избери - -";
+
+
+-->

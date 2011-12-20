@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/words" android:title="@string/menu_Words" android:icon="@drawable/tbwords"></item>
+    <item android:id="@+id/sendword" android:title="@string/menu_SendWord" android:icon="@drawable/tbsendword"></item>
+    <item android:id="@+id/settings" android:title="@string/menu_Settings" android:icon="@drawable/tbsettings"></item>
+    <item android:id="@+id/search" android:title="@string/menu_Search" android:icon="@drawable/tbsearch"></item>
+    <item android:id="@+id/about" android:title="@string/menu_About" android:icon="@drawable/tbabout"></item>
+</menu>

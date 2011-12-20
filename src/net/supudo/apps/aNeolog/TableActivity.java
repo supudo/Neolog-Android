@@ -1,15 +1,11 @@
 package net.supudo.apps.aNeolog;
 
-import net.supudo.apps.aBombaJob.Misc.About;
-import net.supudo.apps.aBombaJob.Misc.Settings;
-import net.supudo.apps.aBombaJob.Offers.JobOffers;
-import net.supudo.apps.aBombaJob.Offers.NewestOffers;
-import net.supudo.apps.aBombaJob.Offers.Search;
-import net.supudo.apps.aBombaJob.Offers.SearchJobs;
-import net.supudo.apps.aBombaJob.Offers.SearchPeople;
-import net.supudo.apps.aBombaJob.Post.Post;
-
-import net.supudo.apps.aBombaJob.R;
+import net.supudo.apps.aNeolog.R;
+import net.supudo.apps.aNeolog.Misc.About;
+import net.supudo.apps.aNeolog.Misc.Settings;
+import net.supudo.apps.aNeolog.Words.LettersAndNests;
+import net.supudo.apps.aNeolog.Words.Search;
+import net.supudo.apps.aNeolog.Words.SendWord;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -25,49 +21,25 @@ public class TableActivity extends ListActivity {
         inflater.inflate(R.menu.options, menu);
         return true;
 	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+ 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
     	Intent mIntent;
         switch (item.getItemId()) {
-	        case R.id.newestoffers:
-	        	mIntent = new Intent().setClass(this, NewestOffers.class);
+	        case R.id.words:
+	        	mIntent = new Intent().setClass(this, LettersAndNests.class);
             	startActivityForResult(mIntent, 0);
 	        	break;
-	        case R.id.jobs:
-	        	if (CommonSettings.stShowCategories)
-	        		mIntent = new Intent().setClass(this, SearchJobs.class);
-	        	else {
-	        		mIntent = new Intent().setClass(this, JobOffers.class);
-	        		mIntent.putExtra("humanyn", false);
-	        	}
-            	startActivityForResult(mIntent, 0);
-	        	break;
-	        case R.id.people:
-	        	if (CommonSettings.stShowCategories)
-	        		mIntent = new Intent().setClass(this, SearchPeople.class);
-	        	else {
-	        		mIntent = new Intent().setClass(this, JobOffers.class);
-	        		mIntent.putExtra("humanyn", true);
-	        	}
-            	startActivityForResult(mIntent, 0);
-	        	break;
-	        case R.id.search:
-	        	mIntent = new Intent().setClass(this, Search.class);
-            	startActivityForResult(mIntent, 0);
-	        	break;
-	        case R.id.post:
-	        	mIntent = new Intent().setClass(this, Post.class);
+	        case R.id.sendword:
+	        	mIntent = new Intent().setClass(this, SendWord.class);
             	startActivityForResult(mIntent, 0);
 	        	break;
 	        case R.id.settings:
 	        	mIntent = new Intent().setClass(this, Settings.class);
             	startActivityForResult(mIntent, 0);
 	        	break;
-	        case R.id.syncagain:
-	        	CommonSettings.lastSyncDate = null;
-	        	mIntent = new Intent().setClass(this, BombaJobActivity.class);
-	        	mIntent.putExtra("forceSync", true);
+	        case R.id.search:
+	        	mIntent = new Intent().setClass(this, Search.class);
             	startActivityForResult(mIntent, 0);
 	        	break;
 	        case R.id.about:
@@ -76,5 +48,5 @@ public class TableActivity extends ListActivity {
 	        	break;
         }
         return true;
-	}
+    }
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/view" android:title="@string/contextmenu_view" />
+    <item android:id="@+id/viewcomments" android:title="@string/contextmenu_viewcomments" />
+    <item android:id="@+id/sendcomment" android:title="@string/contextmenu_sendcomments" />
+</menu>
