@@ -1,7 +1,10 @@
 package net.supudo.apps.aNeolog.Synchronization;
 
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.net.URLEncoder;
 
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -131,6 +134,11 @@ public class SyncManager implements URLHelperCallbacks {
 			e.printStackTrace();
 			mDelegate.onSyncError(e);
 		}
+		catch (UnsupportedEncodingException e) {
+			Log.d("Sync", "Synchronizing error - " + e.getMessage());
+			e.printStackTrace();
+			mDelegate.onSyncError(e);
+		}		
 	}
 
 	public void GetWordsForLetter(String letter) {
@@ -225,10 +233,10 @@ public class SyncManager implements URLHelperCallbacks {
 		urlHelper.loadURLString(CommonSettings.BASE_SERVICES_URL + ServicesNames.WORDSFORNEST_SERVICE + "&nid=" + nestID, WebServiceID.WORDSFORNEST_SERVICE);
 	}
 
-	private void loadWordForLetterUrl(String letter) throws MalformedURLException, NotFoundException {
+	private void loadWordForLetterUrl(String letter) throws MalformedURLException, NotFoundException, UnsupportedEncodingException {
 		this.state = ServicesNames.WORDSFORLETTER_SERVICE;
-		Log.d("Sync", CommonSettings.BASE_SERVICES_URL + ServicesNames.WORDSFORLETTER_SERVICE + "&letter=" + letter);
-		urlHelper.loadURLString(CommonSettings.BASE_SERVICES_URL + ServicesNames.WORDSFORLETTER_SERVICE + "&letter=" + letter, WebServiceID.WORDSFORLETTER_SERVICE);
+		Log.d("Sync", CommonSettings.BASE_SERVICES_URL + ServicesNames.WORDSFORLETTER_SERVICE + "&letter=" + URLEncoder.encode(letter, HTTP.UTF_8));
+		urlHelper.loadURLString(CommonSettings.BASE_SERVICES_URL + ServicesNames.WORDSFORLETTER_SERVICE + "&letter=" + URLEncoder.encode(letter, HTTP.UTF_8), WebServiceID.WORDSFORLETTER_SERVICE);
 	}
 
 	/* ------------------------------------------

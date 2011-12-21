@@ -101,14 +101,18 @@ public class Words extends TableActivity implements Runnable, SyncManagerCallbac
 			letterPos = extra.getInt("lettrPos"); 
 		}
 
-		if (letterPos > 0)
-			setTitle(CommonSettings.Letters[letterPos]);
-		else if (nestID > 0)
+		if (nestID > 0)
 			setTitle(dbHelper.GetNestName(nestID).Title);
+		else
+			setTitle(CommonSettings.Letters[letterPos]);
 
-     	loadingDialog = ProgressDialog.show(this, "", getString(R.string.loading), true);
-    	Thread thread = new Thread(this);
-    	thread.run();
+		if (CommonSettings.ShouldSyncWords(Words.this, letterPos, nestID)) {
+			loadingDialog = ProgressDialog.show(this, "", getString(R.string.loading), true);
+			Thread thread = new Thread(this);
+			thread.run();
+		}
+		else
+			LoadWords();
     }
 
 	@Override
@@ -127,6 +131,7 @@ public class Words extends TableActivity implements Runnable, SyncManagerCallbac
 
 	@Override
 	public void syncFinished() {
+		CommonSettings.AddToCache(Words.this, letterPos, nestID);
         handler.sendEmptyMessage(0);
 	}
 
@@ -171,10 +176,10 @@ public class Words extends TableActivity implements Runnable, SyncManagerCallbac
 	}
 	
 	public void run() {
-		if (letterPos > 0)
-			syncManager.GetWordsForLetter(CommonSettings.Letters[letterPos]);
-		else
+		if (nestID > 0)
 			syncManager.GetWordsForNest(nestID);
+		else
+			syncManager.GetWordsForLetter(CommonSettings.Letters[letterPos]);
 	}
 	
 	private void DestroySyncManager() {
@@ -188,10 +193,10 @@ public class Words extends TableActivity implements Runnable, SyncManagerCallbac
 		if (listItems != null)
 			listItems.clear();
 
-		if (letterPos > 0)
-			listItems = dbHelper.selectWordsForLetter(CommonSettings.Letters[letterPos]);
-		else
+		if (nestID > 0)
 			listItems = dbHelper.selectWordsForNest(nestID);
+		else
+			listItems = dbHelper.selectWordsForLetter(CommonSettings.Letters[letterPos]);
 	}
 	
 	private void LoadWords() {

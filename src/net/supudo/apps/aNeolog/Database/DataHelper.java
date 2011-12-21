@@ -211,7 +211,7 @@ public class DataHelper {
 	}
 
 	public ArrayList<WordModel> selectWordsForLetter(String letter) {
-		String whereClause = "LOWER(" + DatabaseSchema.WordColumns.WORD + ") = '" + letter + "'";
+		String whereClause = "LOWER(" + DatabaseSchema.WordColumns.WORD + ") LIKE '" + letter + "%'";
 		return selectWords(whereClause, null, null);
 	}
 

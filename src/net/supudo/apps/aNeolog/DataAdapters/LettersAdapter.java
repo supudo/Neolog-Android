@@ -1,9 +1,7 @@
 package net.supudo.apps.aNeolog.DataAdapters;
 
-import java.util.ArrayList;
-
 import net.supudo.apps.aNeolog.R;
-import net.supudo.apps.aNeolog.Database.Models.NestModel;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -12,12 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class NestsAdapter extends ArrayAdapter<NestModel> {
+public class LettersAdapter extends ArrayAdapter<String> {
 
 	private LayoutInflater mInflater;
-	private ArrayList<NestModel> items;
+	private String[] items;
 
-	public NestsAdapter(Context context, int textViewResourceId, ArrayList<NestModel> items) {
+	public LettersAdapter(Context context, int textViewResourceId, String[] items) {
 		super(context, textViewResourceId, items);
 		mInflater = LayoutInflater.from(context);
 		this.items = items;
@@ -25,7 +23,7 @@ public class NestsAdapter extends ArrayAdapter<NestModel> {
 
 	@Override
 	public int getCount() {
-		return items.size();
+		return items.length;
 	}
 
 	@Override
@@ -41,19 +39,17 @@ public class NestsAdapter extends ArrayAdapter<NestModel> {
 		else
 			holder = (ViewHolder) convertView.getTag();
 
-		NestModel nest = (NestModel)items.get(position);
+		String letter = (String)items[position];
 
-		holder.title.setTag(nest.NestID);
-		holder.title.setText(nest.Title);
+		holder.title.setTag(letter);
+		holder.title.setText(letter);
 		holder.title.setTypeface(null, Typeface.BOLD);
-		holder.nid = nest.NestID;
 
 		return convertView;
  	}
 
   	static class ViewHolder {
  		TextView title;
- 		Integer nid;
  	}
 
 }

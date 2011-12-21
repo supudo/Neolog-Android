@@ -3,12 +3,12 @@ package net.supudo.apps.aNeolog.Words;
 import net.supudo.apps.aNeolog.CommonSettings;
 import net.supudo.apps.aNeolog.R;
 import net.supudo.apps.aNeolog.TableActivity;
+import net.supudo.apps.aNeolog.DataAdapters.LettersAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,16 +41,15 @@ public class Letters extends TableActivity {
 		request.addTestDevice(AdRequest.TEST_EMULATOR);
 		adView.loadAd(request);
 
-		ArrayAdapter<String> _adapter = new ArrayAdapter<String>(Letters.this, R.layout.list_item, CommonSettings.Letters);
+		setListAdapter(new LettersAdapter(Letters.this, R.layout.list_item, CommonSettings.Letters));
 
 		listView = getListView();
 		listView.setTextFilterEnabled(true);
-		listView.setAdapter(_adapter);
 
 		listView.setTextFilterEnabled(true);
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				ViewNest(position);
+				ViewLetter(position);
 			}
 		});
 	}
@@ -72,7 +71,7 @@ public class Letters extends TableActivity {
 		super.onDestroy();
 	}
 	
-	private void ViewNest(Integer pos) {
+	private void ViewLetter(Integer pos) {
 		String letter = CommonSettings.Letters[pos];
 		Toast.makeText(getApplicationContext(), letter, Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent().setClass(Letters.this, Words.class);
