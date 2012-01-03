@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class color {
         public static final int bgColor=0x7f040000;
+        public static final int whiteColor=0x7f040001;
     }
     public static final class drawable {
         public static final int fb_close=0x7f020000;
@@ -33,29 +34,47 @@ public final class R {
         public static final int tbwords=0x7f020010;
     }
     public static final class id {
-        public static final int about=0x7f070013;
-        public static final int icon=0x7f070003;
-        public static final int info_icon=0x7f070005;
-        public static final int letters_layout=0x7f070001;
-        public static final int mainFrame=0x7f070008;
-        public static final int nests_layout=0x7f07000b;
-        public static final int search=0x7f070012;
-        public static final int sendcomment=0x7f070016;
-        public static final int sendword=0x7f070010;
-        public static final int setting=0x7f070007;
-        public static final int settings=0x7f070011;
-        public static final int settings_layout=0x7f07000c;
-        public static final int subtitle=0x7f070004;
-        public static final int sync_progress=0x7f07000a;
-        public static final int title=0x7f070002;
-        public static final int toggle=0x7f070006;
-        public static final int twitterlogin=0x7f07000d;
-        public static final int txtLoading=0x7f070009;
-        public static final int view=0x7f070014;
-        public static final int viewcomments=0x7f070015;
-        public static final int webview=0x7f070000;
-        public static final int words=0x7f07000f;
-        public static final int words_layout=0x7f07000e;
+        public static final int about=0x7f080025;
+        public static final int authorDate=0x7f08001d;
+        public static final int authorURLEmail=0x7f08001e;
+        public static final int btn_comments=0x7f08001f;
+        public static final int btn_search=0x7f08000e;
+        public static final int description=0x7f080018;
+        public static final int ethimology=0x7f08001c;
+        public static final int ethimology_title=0x7f08001b;
+        public static final int examples=0x7f08001a;
+        public static final int examples_title=0x7f080019;
+        public static final int facebook_post=0x7f080015;
+        public static final int icon=0x7f080003;
+        public static final int info_icon=0x7f080005;
+        public static final int letters_layout=0x7f080001;
+        public static final int mainFrame=0x7f080009;
+        public static final int nests_layout=0x7f08000c;
+        public static final int search=0x7f080024;
+        public static final int search_box=0x7f08000d;
+        public static final int search_results_layout=0x7f08000f;
+        public static final int sendcomment=0x7f080028;
+        public static final int sendword=0x7f080022;
+        public static final int setting=0x7f080007;
+        public static final int settings=0x7f080023;
+        public static final int settings_layout=0x7f080010;
+        public static final int subtitle=0x7f080004;
+        public static final int sync_progress=0x7f08000b;
+        public static final int title=0x7f080002;
+        public static final int toggle=0x7f080006;
+        public static final int twitter_post=0x7f080016;
+        public static final int twitterlogin=0x7f080011;
+        public static final int txtLoading=0x7f08000a;
+        public static final int view=0x7f080026;
+        public static final int viewcomments=0x7f080027;
+        public static final int web_content=0x7f080008;
+        public static final int webview=0x7f080000;
+        public static final int word=0x7f080017;
+        public static final int wordcomments_layout=0x7f080012;
+        public static final int worddetails_layoutview=0x7f080014;
+        public static final int worddetails_scrollview=0x7f080013;
+        public static final int words=0x7f080021;
+        public static final int words_layout=0x7f080020;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -66,45 +85,85 @@ public final class R {
         public static final int list_item_setting=0x7f030005;
         public static final int list_item_simple=0x7f030006;
         public static final int list_item_subtitled=0x7f030007;
-        public static final int main=0x7f030008;
-        public static final int nests=0x7f030009;
-        public static final int search=0x7f03000a;
-        public static final int send_comment=0x7f03000b;
-        public static final int send_word=0x7f03000c;
-        public static final int settings=0x7f03000d;
-        public static final int twitter_login=0x7f03000e;
-        public static final int word_comments=0x7f03000f;
-        public static final int word_details=0x7f030010;
-        public static final int words=0x7f030011;
+        public static final int list_item_webview=0x7f030008;
+        public static final int main=0x7f030009;
+        public static final int nests=0x7f03000a;
+        public static final int search=0x7f03000b;
+        public static final int search_results=0x7f03000c;
+        public static final int send_comment=0x7f03000d;
+        public static final int send_word=0x7f03000e;
+        public static final int settings=0x7f03000f;
+        public static final int twitter_login=0x7f030010;
+        public static final int word_comments=0x7f030011;
+        public static final int word_details=0x7f030012;
+        public static final int words=0x7f030013;
     }
     public static final class menu {
-        public static final int options=0x7f060000;
-        public static final int word_context_menu=0x7f060001;
+        public static final int options=0x7f070000;
+        public static final int word_context_menu=0x7f070001;
     }
     public static final class string {
-        public static final int about_InAppEmail=0x7f050014;
-        public static final int about_OnlineSearch=0x7f050013;
-        public static final int about_StorePrivateData=0x7f050012;
-        public static final int about_info_InAppEmail=0x7f050017;
-        public static final int about_info_OnlineSearch=0x7f050016;
-        public static final int about_info_StorePrivateData=0x7f050015;
+        public static final int about_InAppEmail=0x7f050015;
+        public static final int about_OnlineSearch=0x7f050014;
+        public static final int about_StorePrivateData=0x7f050013;
+        public static final int about_info_InAppEmail=0x7f050018;
+        public static final int about_info_OnlineSearch=0x7f050017;
+        public static final int about_info_StorePrivateData=0x7f050016;
         public static final int app_name=0x7f050000;
-        public static final int close_alertbox=0x7f05000d;
-        public static final int contextmenu_sendcomments=0x7f050010;
-        public static final int contextmenu_view=0x7f05000e;
-        public static final int contextmenu_viewcomments=0x7f05000f;
+        public static final int btn_email=0x7f050019;
+        public static final int btn_facebook=0x7f05001a;
+        public static final int btn_twitter=0x7f05001b;
+        public static final int close_alertbox=0x7f05000e;
+        public static final int contextmenu_sendcomments=0x7f050011;
+        public static final int contextmenu_view=0x7f05000f;
+        public static final int contextmenu_viewcomments=0x7f050010;
+        public static final int ethimology=0x7f05001d;
+        public static final int examples=0x7f05001c;
+        public static final int facebook_publisherror=0x7f050020;
+        public static final int facebook_publishok=0x7f05001f;
+        public static final int facebook_responseerror=0x7f050021;
         public static final int loading=0x7f050001;
         public static final int menu_About=0x7f050006;
         public static final int menu_Search=0x7f050005;
         public static final int menu_SendWord=0x7f050003;
         public static final int menu_Settings=0x7f050004;
         public static final int menu_Words=0x7f050002;
-        public static final int no=0x7f050009;
+        public static final int monthsShort_1=0x7f05002c;
+        public static final int monthsShort_10=0x7f050035;
+        public static final int monthsShort_11=0x7f050036;
+        public static final int monthsShort_12=0x7f050037;
+        public static final int monthsShort_2=0x7f05002d;
+        public static final int monthsShort_3=0x7f05002e;
+        public static final int monthsShort_4=0x7f05002f;
+        public static final int monthsShort_5=0x7f050030;
+        public static final int monthsShort_6=0x7f050031;
+        public static final int monthsShort_7=0x7f050032;
+        public static final int monthsShort_8=0x7f050033;
+        public static final int monthsShort_9=0x7f050034;
+        public static final int no=0x7f05000a;
+        public static final int no_comments=0x7f050008;
         public static final int no_data=0x7f050007;
-        public static final int settings=0x7f050011;
-        public static final int tab_letters=0x7f05000c;
-        public static final int tab_nests=0x7f05000b;
-        public static final int title_LettersAndNests=0x7f050008;
-        public static final int yes=0x7f05000a;
+        public static final int search=0x7f050038;
+        public static final int settings=0x7f050012;
+        public static final int tab_letters=0x7f05000d;
+        public static final int tab_nests=0x7f05000c;
+        public static final int title_LettersAndNests=0x7f050009;
+        public static final int twitter_err_accesstoken=0x7f05002a;
+        public static final int twitter_err_duplicate=0x7f05002b;
+        public static final int twitter_err_requesttoken=0x7f050029;
+        public static final int twitter_finalizing=0x7f050027;
+        public static final int twitter_initializing=0x7f050026;
+        public static final int twitter_loginerror=0x7f050023;
+        public static final int twitter_noconnection=0x7f050028;
+        public static final int twitter_pleaseauthorize=0x7f050022;
+        public static final int twitter_publisherror=0x7f050025;
+        public static final int twitter_publishok=0x7f050024;
+        public static final int wordComments=0x7f05001e;
+        public static final int yes=0x7f05000b;
+    }
+    public static final class style {
+        /**  <item name="android:textColor">#FFFFFF</item>  
+         */
+        public static final int Theme_NLTheme=0x7f060000;
     }
 }

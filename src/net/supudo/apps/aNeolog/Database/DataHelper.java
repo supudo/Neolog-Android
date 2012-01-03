@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.supudo.apps.aNeolog.Database.Models.NestModel;
 import net.supudo.apps.aNeolog.Database.Models.SettingModel;
 import net.supudo.apps.aNeolog.Database.Models.TextContentModel;
+import net.supudo.apps.aNeolog.Database.Models.WordCommentModel;
 import net.supudo.apps.aNeolog.Database.Models.WordModel;
 
 import android.content.ContentValues;
@@ -205,14 +206,26 @@ public class DataHelper {
 	 * 
 	 * ------------------------------------------
 	 */
+	public ArrayList<WordModel> searchWords(String searchQuery) {
+		String whereClause = "LOWER(" + DatabaseSchema.WordColumns.WORD + ") LIKE '%" + searchQuery.toLowerCase() + "%' OR LOWER(" + DatabaseSchema.WordColumns.WORD + ") LIKE '%" + searchQuery.toUpperCase() + "%'";
+		return selectWords(whereClause, null, null);
+	}
+
 	public ArrayList<WordModel> selectWordsForNest(int nestID) {
 		String whereClause = DatabaseSchema.WordColumns.NEST_ID + " = " + nestID;
 		return selectWords(whereClause, null, null);
 	}
 
 	public ArrayList<WordModel> selectWordsForLetter(String letter) {
-		String whereClause = "LOWER(" + DatabaseSchema.WordColumns.WORD + ") LIKE '" + letter + "%'";
+		String whereClause = "LOWER(" + DatabaseSchema.WordColumns.WORD_LETTER + ") LIKE '%" + letter.toLowerCase() + "%' OR LOWER(" + DatabaseSchema.WordColumns.WORD_LETTER + ") LIKE '%" + letter.toUpperCase() + "%'";
 		return selectWords(whereClause, null, null);
+	}
+
+	public WordModel GetWord(Integer wordID) {
+		ArrayList<WordModel> ar = selectWords(DatabaseSchema.WordColumns._ID + " = " + wordID, null, null);
+		if (ar.size() > 0)
+			return ar.get(0);
+		return null;
 	}
 
 	private ArrayList<WordModel> selectWords(String selection, String[] args, String queryLimit) {
@@ -220,6 +233,7 @@ public class DataHelper {
 		Cursor c = db.query(DatabaseSchema.WORDS_TABLE_NAME, new String[] {
 					DatabaseSchema.WordColumns._ID,
 					DatabaseSchema.WordColumns.ADDEDAT_DATE,
+					DatabaseSchema.WordColumns.ADDEDAT_DATESTAMP,
 					DatabaseSchema.WordColumns.ADDEDBY,
 					DatabaseSchema.WordColumns.ADDEDBY_EMAIL,
 					DatabaseSchema.WordColumns.ADDEDBY_URL,
@@ -230,13 +244,15 @@ public class DataHelper {
 					DatabaseSchema.WordColumns.EXAMPLE,
 					DatabaseSchema.WordColumns.NEST_ID,
 					DatabaseSchema.WordColumns.ORDERPOS,
-					DatabaseSchema.WordColumns.WORD},
+					DatabaseSchema.WordColumns.WORD,
+					DatabaseSchema.WordColumns.WORD_LETTER},
 				selection, args, null, null, DatabaseSchema.WordColumns.ORDERPOS + " DESC", queryLimit);
 		c.moveToFirst();
 		ArrayList<WordModel> resu = new ArrayList<WordModel>();
 		while (c.isAfterLast() == false) {
 			Integer wordID = c.getInt(c.getColumnIndex(DatabaseSchema.WordColumns._ID));
 			String word = c.getString(c.getColumnIndex(DatabaseSchema.WordColumns.WORD));
+			String wordLetter = c.getString(c.getColumnIndex(DatabaseSchema.WordColumns.WORD_LETTER));
 			Integer orderPos = c.getInt(c.getColumnIndex(DatabaseSchema.WordColumns.ORDERPOS));
 			Integer nestID = c.getInt(c.getColumnIndex(DatabaseSchema.WordColumns.NEST_ID));
 			String example = c.getString(c.getColumnIndex(DatabaseSchema.WordColumns.EXAMPLE));
@@ -248,8 +264,49 @@ public class DataHelper {
 			String addedBy_URL = c.getString(c.getColumnIndex(DatabaseSchema.WordColumns.ADDEDBY_URL));
 			String addedBy_Email = c.getString(c.getColumnIndex(DatabaseSchema.WordColumns.ADDEDBY_EMAIL));
 			String addedAt_Date = c.getString(c.getColumnIndex(DatabaseSchema.WordColumns.ADDEDAT_DATE));
+			long addedAt_Datestamp = c.getLong(c.getColumnIndex(DatabaseSchema.WordColumns.ADDEDAT_DATESTAMP));
 
-			WordModel model = new WordModel(wordID, word, orderPos, nestID, example, ethimology, description, derivatives, commentCount, addedBy, addedBy_URL, addedBy_Email, addedAt_Date);
+			WordModel model = new WordModel(wordID, word, wordLetter, orderPos, nestID, example, ethimology, description, derivatives, commentCount, addedBy, addedBy_URL, addedBy_Email, addedAt_Date, addedAt_Datestamp);
+			resu.add(model);
+			c.moveToNext();
+		}
+		c.close();
+		db.close();
+		return resu;
+	}
+
+	/* ------------------------------------------
+	 * 
+	 * Word comments
+	 * 
+	 * ------------------------------------------
+	 */
+	public ArrayList<WordCommentModel> selectWordComments(int wordID) {
+		String whereClause = DatabaseSchema.WordCommentsColumns.WORD_ID + " = " + wordID;
+		return selectWordComments(whereClause, null, null);
+	}
+
+	private ArrayList<WordCommentModel> selectWordComments(String selection, String[] args, String queryLimit) {
+		SQLiteDatabase db = dbModel.getReadableDatabase();
+		Cursor c = db.query(DatabaseSchema.WORDSCOMMENTS_TABLE_NAME, new String[] {
+					DatabaseSchema.WordCommentsColumns._ID,
+					DatabaseSchema.WordCommentsColumns.AUTHOR,
+					DatabaseSchema.WordCommentsColumns.COMMENT,
+					DatabaseSchema.WordCommentsColumns.COMMENT_DATE,
+					DatabaseSchema.WordCommentsColumns.COMMENT_DATESTAMP,
+					DatabaseSchema.WordCommentsColumns.WORD_ID},
+				selection, args, null, null, DatabaseSchema.WordCommentsColumns.COMMENT_DATE + " DESC", queryLimit);
+		c.moveToFirst();
+		ArrayList<WordCommentModel> resu = new ArrayList<WordCommentModel>();
+		while (c.isAfterLast() == false) {
+			Integer commentID = c.getInt(c.getColumnIndex(DatabaseSchema.WordColumns._ID));
+			String author = c.getString(c.getColumnIndex(DatabaseSchema.WordCommentsColumns.AUTHOR));
+			String comment = c.getString(c.getColumnIndex(DatabaseSchema.WordCommentsColumns.COMMENT));
+			String commentDate = c.getString(c.getColumnIndex(DatabaseSchema.WordCommentsColumns.COMMENT_DATE));
+			long commentDatestamp = c.getLong(c.getColumnIndex(DatabaseSchema.WordCommentsColumns.COMMENT_DATESTAMP));
+			Integer wordID = c.getInt(c.getColumnIndex(DatabaseSchema.WordCommentsColumns.WORD_ID));
+
+			WordCommentModel model = new WordCommentModel(commentID, wordID, author, comment, commentDate, commentDatestamp);
 			resu.add(model);
 			c.moveToNext();
 		}

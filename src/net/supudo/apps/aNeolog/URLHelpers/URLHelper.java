@@ -22,8 +22,11 @@ public class URLHelper implements AsyncURLConnectionCallbacks, AsyncPostRequestC
 	@Override
 	public void onSuccess(ByteArrayBuffer baf) {
 		try {
-			Log.d("URLHelper", EncodingUtils.getString(baf.toByteArray(), "utf8"));
-			JSONObject obj = new JSONObject(EncodingUtils.getString(baf.toByteArray(), "utf8"));
+			String jsonString = EncodingUtils.getString(baf.toByteArray(), "utf8");
+			Log.d("URLHelper", "JSON response = " + jsonString);
+			JSONObject obj = null;
+			if (!jsonString.equals("") && !jsonString.equals("[]"))
+				obj = new JSONObject(jsonString);
 			mDelegate.updateModelWithJSONObject(obj, this.serviceId);
 		}
 		catch (Exception e) {

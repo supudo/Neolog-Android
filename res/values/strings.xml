@@ -8,6 +8,7 @@
     <string name="menu_Search">Търси</string>
     <string name="menu_About">За Neolog</string>
     <string name="no_data">Липсват данни.</string>
+    <string name="no_comments">Няма коментари.</string>
     <string name="title_LettersAndNests">Избери...</string>
     <string name="no">Не</string>
     <string name="yes">Да</string>
@@ -24,6 +25,38 @@
     <string name="about_info_StorePrivateData">При публикуване на обява ще запазим вашите детайли, за да не ги въвеждате всеки път.</string>
     <string name="about_info_OnlineSearch">Приложението ще търси онлайн с последни данни от сайта, или само в текущите до момента свалени на устройството.</string>
     <string name="about_info_InAppEmail">Изпращането на имейл ще става през сайта, или директно през устройството. (Изисква се настроен имейл акаунт на устройството)</string>
+    <string name="btn_email">Email</string>
+    <string name="btn_facebook">Facebook</string>
+    <string name="btn_twitter">Twitter</string>
+    <string name="examples">Примери</string>
+    <string name="ethimology">Етимология</string>
+    <string name="wordComments">Какво казват другите...</string>
+    <string name="facebook_publishok">Обявата беше публикувана на вашата стена.</string>
+    <string name="facebook_publisherror">Възникна проблем при публикуване на вашата стена.</string>
+    <string name="facebook_responseerror">Facebook error.</string>
+    <string name="twitter_pleaseauthorize">Моля, разрешете приложението в Twitter.</string>
+    <string name="twitter_loginerror">Грешно потребителско име и/или парола.</string>
+    <string name="twitter_publishok">Чуруликането беше успешно</string>
+    <string name="twitter_publisherror">Възникна проблем при чуруликането.</string>
+    <string name="twitter_initializing">Зареждане...</string>
+    <string name="twitter_finalizing">Още малко...</string>
+    <string name="twitter_noconnection">Нямаме връзка с Twitter в момента.</string>
+    <string name="twitter_err_requesttoken">Error getting request token</string>
+    <string name="twitter_err_accesstoken">Error getting access token</string>
+    <string name="twitter_err_duplicate">Вече сте туитнали тази оферта веднъж.</string>
+    <string name="monthsShort_1">Яну</string>
+    <string name="monthsShort_2">Фев</string>
+    <string name="monthsShort_3">Март</string>
+    <string name="monthsShort_4">Апр</string>
+    <string name="monthsShort_5">Май</string>
+    <string name="monthsShort_6">Юни</string>
+    <string name="monthsShort_7">Юли</string>
+    <string name="monthsShort_8">Авг</string>
+    <string name="monthsShort_9">Септ</string>
+    <string name="monthsShort_10">Окт</string>
+    <string name="monthsShort_11">Ное</string>
+    <string name="monthsShort_12">Дек</string>
+    <string name="search">Търси</string>
 </resources>
 <!-- 
 

@@ -131,7 +131,7 @@ public class Words extends TableActivity implements Runnable, SyncManagerCallbac
 
 	@Override
 	public void syncFinished() {
-		CommonSettings.AddToCache(Words.this, letterPos, nestID);
+		CommonSettings.AddToCache(Words.this, letterPos, nestID, 0);
         handler.sendEmptyMessage(0);
 	}
 
@@ -174,12 +174,12 @@ public class Words extends TableActivity implements Runnable, SyncManagerCallbac
 				return super.onContextItemSelected(item);
 		}
 	}
-	
+
 	public void run() {
 		if (nestID > 0)
 			syncManager.GetWordsForNest(nestID);
 		else
-			syncManager.GetWordsForLetter(CommonSettings.Letters[letterPos]);
+			syncManager.GetWordsForLetter(((letterPos == CommonSettings.Letters.length - 1) ? "x" : CommonSettings.Letters[letterPos]));
 	}
 	
 	private void DestroySyncManager() {
@@ -196,7 +196,7 @@ public class Words extends TableActivity implements Runnable, SyncManagerCallbac
 		if (nestID > 0)
 			listItems = dbHelper.selectWordsForNest(nestID);
 		else
-			listItems = dbHelper.selectWordsForLetter(CommonSettings.Letters[letterPos]);
+			listItems = dbHelper.selectWordsForLetter(((letterPos == CommonSettings.Letters.length - 1) ? "x" : CommonSettings.Letters[letterPos]));
 	}
 	
 	private void LoadWords() {

@@ -35,9 +35,32 @@ public enum CommonSettings {
 	public static final String PREF_KEY_CONNECTED = "connected";
 
 	public static boolean stSearchOnline = true, stStorePrivateData = true, stInAppEmail = true;
-	public static String[] Letters = {"А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ю", "Я"}; 
+	public static String[] Letters = {"А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ю", "Я", "Други..."}; 
 	public static Date lastSyncDate;
 	public static HashMap<String, String> cacheObject = new HashMap<String, String>();
+	
+	public static int syncTimeintervalForWords = 3600, syncTimeintervalForComments = 72000;
+
+	public static boolean ShouldSyncComments(Context ctx, int wordID) {
+		boolean shouldSync = true;
+		if (cacheObject.size() == 0)
+			LoadCache(ctx);
+
+		String syncDate = (String)cacheObject.get("word-" + String.valueOf(wordID));
+
+		if (syncDate != null)
+			syncDate = syncDate.replace("word-", "");
+
+		if (syncDate != null && !syncDate.equals("")) {
+			long syncDateMiliSeconds = Long.parseLong(syncDate);
+			long diffInSeconds = (Calendar.getInstance().getTime().getTime() - syncDateMiliSeconds) / 1000;
+			Log.d("CommonSettings", "Skipping sync for word comments " + wordID + " - last @ " + (diffInSeconds * 60));
+			if (diffInSeconds < syncTimeintervalForComments)
+				shouldSync = false;
+		}
+
+		return shouldSync;
+	}
 
 	public static boolean ShouldSyncWords(Context ctx, int letterPos, int nestID) {
 		boolean shouldSync = true;
@@ -49,7 +72,7 @@ public enum CommonSettings {
 			syncDate = (String)cacheObject.get("nest-" + String.valueOf(nestID));
 		else
 			syncDate = (String)cacheObject.get("letter-" + String.valueOf(letterPos));
-		
+
 		if (syncDate != null) {
 			if (nestID > 0)
 				syncDate = syncDate.replace("nest-", "");
@@ -61,17 +84,19 @@ public enum CommonSettings {
 			long syncDateMiliSeconds = Long.parseLong(syncDate);
 			long diffInSeconds = (Calendar.getInstance().getTime().getTime() - syncDateMiliSeconds) / 1000;
 			Log.d("CommonSettings", "Skipping sync for " + ((nestID > 0) ? nestID : letterPos) + " - last @ " + (diffInSeconds * 60));
-			if (diffInSeconds < 3600)
+			if (diffInSeconds < syncTimeintervalForWords)
 				shouldSync = false;
 		}
 
 		return shouldSync;
 	}
 	
-	public static void AddToCache(Context ctx, int letterPos, int nestID) {
+	public static void AddToCache(Context ctx, int letterPos, int nestID, int wordID) {
 		String syncDate = String.valueOf((new Date()).getTime());
 		if (nestID > 0)
 			cacheObject.put("nest-" + String.valueOf(nestID), syncDate);
+		else if (wordID > 0)
+			cacheObject.put("word-" + String.valueOf(wordID), syncDate);
 		else
 			cacheObject.put("letter-" + String.valueOf(letterPos), syncDate);
 		SaveCache(ctx);

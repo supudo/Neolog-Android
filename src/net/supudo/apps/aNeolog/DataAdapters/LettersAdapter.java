@@ -4,6 +4,7 @@ import net.supudo.apps.aNeolog.R;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,7 @@ public class LettersAdapter extends ArrayAdapter<String> {
 		holder.title.setTag(letter);
 		holder.title.setText(letter);
 		holder.title.setTypeface(null, Typeface.BOLD);
+		holder.title.setGravity(Gravity.CENTER);
 
 		return convertView;
  	}

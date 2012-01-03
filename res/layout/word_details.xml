@@ -1,7 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#29435E">
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  android:background="#29435E">
+ 
+    <ScrollView android:id="@+id/worddetails_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        
+        <LinearLayout android:id="@+id/worddetails_layoutview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:layout_margin="6dp" android:paddingTop="4dp"
+                    android:orientation="horizontal"> 
+                    <Button android:id="@+id/facebook_post" android:text="@string/btn_facebook"
+                       android:layout_width="150dp" android:layout_height="wrap_content" />
+                    <Button android:id="@+id/twitter_post" android:text="@string/btn_twitter"
+                       android:layout_width="150dp" android:layout_height="wrap_content" />
+                </LinearLayout>
+            
+                <!--  Word -->
+                <TextView android:id="@+id/word" android:text="Word..."
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_margin="6dp" android:textStyle="bold" android:paddingTop="4dp"
+                    android:textColor="#FFFFFF" />
+            
+                <!--  Description -->
+                <TextView android:id="@+id/description" android:text="Description..."
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_margin="6dp" android:paddingTop="4dp"
+                    android:textColor="#FFFFFF" />
+            
+                <!--  Examples -->
+                <TextView android:id="@+id/examples_title" android:text="@string/examples"
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginLeft="6dp" android:layout_marginRight="6dp" android:layout_marginTop="20dp"
+                    android:textStyle="bold" android:paddingTop="4dp"
+                    android:textColor="#FFFFFF" />
+                <TextView android:id="@+id/examples" android:text="Examples..."
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginLeft="6dp" android:layout_marginRight="6dp" android:layout_marginTop="6dp"
+                    android:paddingTop="4dp" android:autoLink="web|phone|email"
+                    android:textColor="#FFFFFF" />
+            
+                <!--  Ethimology -->
+                <TextView android:id="@+id/ethimology_title" android:text="@string/ethimology"
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginLeft="6dp" android:layout_marginRight="6dp" android:layout_marginTop="20dp"
+                    android:textStyle="bold" android:paddingTop="4dp"
+                    android:textColor="#FFFFFF" />
+                <TextView android:id="@+id/ethimology" android:text="Ethimology..."
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginLeft="6dp" android:layout_marginRight="6dp" android:layout_marginTop="6dp"
+                    android:paddingTop="4dp" android:autoLink="web|phone|email"
+                    android:textColor="#FFFFFF" />
+            
+                <!--  Author -->
+                <TextView android:id="@+id/authorDate" android:text="Author @ Date..."
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginLeft="6dp" android:layout_marginRight="6dp" android:layout_marginTop="20dp"
+                    android:textColor="#FFFFFF" />
+            
+                <!--  Author URL & Email -->
+                <TextView android:id="@+id/authorURLEmail" android:text="Author URL and Email..."
+                    android:layout_width="fill_parent" android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:layout_marginLeft="6dp" android:layout_marginRight="6dp" android:layout_marginTop="6dp"
+                    android:paddingTop="4dp" android:autoLink="web|email" android:textColorLink="#FFFFFF" />
+
+                <Button android:id="@+id/btn_comments" android:text="@string/wordComments"
+                   android:layout_width="fill_parent" android:layout_height="wrap_content"
+                   android:background="@drawable/gaz" android:textColor="#FFFFFF" android:layout_marginTop="20dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>

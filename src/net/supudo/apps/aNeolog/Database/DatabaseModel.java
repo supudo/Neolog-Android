@@ -51,13 +51,15 @@ public class DatabaseModel extends SQLiteOpenHelper {
 		WordCommentsColumns.WORD_ID + " INTEGER, " +
 		WordCommentsColumns.AUTHOR + " VARCHAR, " +
 		WordCommentsColumns.COMMENT + " VARCHAR, " +
-		WordCommentsColumns.COMMENT_DATE + " VARCHAR);";
+		WordCommentsColumns.COMMENT_DATE + " VARCHAR," +
+		WordCommentsColumns.COMMENT_DATESTAMP + " INTEGER);";
 
 	private static final String WORDS_TABLE_CREATE =
 		"CREATE VIRTUAL TABLE " + DatabaseSchema.WORDS_TABLE_NAME + " USING FTS3 (" +
 		WordColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
 		WordColumns.NEST_ID + " INTEGER UNSIGNED REFERENCES " + DatabaseSchema.NEST_TABLE_NAME + "(" + DatabaseSchema.NestColumns._ID + ") ON UPDATE CASCADE ON DELETE CASCADE," +
 		WordColumns.WORD + " VARCHAR," +
+		WordColumns.WORD_LETTER + " VARCHAR," +
 		WordColumns.ORDERPOS + " INTEGER," +
 		WordColumns.EXAMPLE + " VARCHAR," +
 		WordColumns.ETHIMOLOGY + " VARCHAR," +
@@ -67,7 +69,8 @@ public class DatabaseModel extends SQLiteOpenHelper {
 		WordColumns.ADDEDBY_URL + " VARCHAR," +
 		WordColumns.ADDEDBY_EMAIL + " VARCHAR," +
 		WordColumns.ADDEDBY + " VARCHAR," +
-		WordColumns.ADDEDAT_DATE + " VARCHAR);";
+		WordColumns.ADDEDAT_DATE + " VARCHAR," +
+		WordColumns.ADDEDAT_DATESTAMP + " INTEGER);";
 
 	public DatabaseModel(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
