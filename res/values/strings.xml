@@ -57,6 +57,17 @@
     <string name="monthsShort_11">Ное</string>
     <string name="monthsShort_12">Дек</string>
     <string name="search">Търси</string>
+    <string name="post_name">Име/псевдоним:</string>
+    <string name="post_email">Email:</string>
+    <string name="post_url">Вашият сайт:</string>
+    <string name="post_word">Думата:</string>
+    <string name="post_nest">Гнездо:</string>
+    <string name="post_description">Какво значи:</string>
+    <string name="post_examples">Примери:</string>
+    <string name="post_ethimology">Етимология (произход):</string>
+    <string name="post_gaz">Газ!</string>
+    <string name="post_error">Изпуснали сте някои от задължителните полета.</string>
+    <string name="post_thanks">Благодарим ви!</string>
 </resources>
 <!-- 
 
@@ -71,8 +82,6 @@
 "bg_LanguageCancel" = "Откажи";
 "bg_LanguageSave" = "Запиши";
 "bg_ButtonAbout" = "За Neolog.bg";
-"bg_MissingReqFields" = "Изпуснали сте някои от задължителните полета.";
-"bg_ThankYou" = "Благодарим ви!";
 "bg_Description" = "Какво значи";
 "bg_Example" = "Примери";
 "bg_Ethimology" = "Етимология";

@@ -103,11 +103,12 @@ public class DatabaseModel extends SQLiteOpenHelper {
 	}
 	
 	private void InitSettings(SQLiteDatabase db) {
-		String[] settings = new String[4];
+		String[] settings = new String[5];
 		settings[0] = "StorePrivateData|TRUE|1";
 		settings[1] = "OnlineSearch|TRUE|1";
 		settings[2] = "InAppEmail|FALSE|1";
 		settings[3] = "lastSyncDate| |0";
+		settings[4] = "PrivateData_Email| |0";
 
 		ContentValues cv;
 		for (int i=0; i<settings.length; i++) {

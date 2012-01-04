@@ -1,7 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#29435E">
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:background="#29435E">
+    
+    <ScrollView android:id="@+id/scroller"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="5dp">
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+    
+            <TextView
+                android:id="@+id/lbl_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/post_name"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/txt_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <requestFocus />
+            </EditText>
+    
+            <TextView
+                android:id="@+id/lbl_email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/post_email"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+    
+            <TextView
+                android:id="@+id/lbl_url"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/post_url"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/txt_url"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+    
+            <TextView
+                android:id="@+id/lbl_word"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/post_word"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/txt_word"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+    
+            <TextView
+                android:id="@+id/lbl_examples"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/post_nest"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <Spinner
+                android:id="@+id/nest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FF8D00"
+                android:prompt="@string/post_nest" />
+    
+            <TextView
+                android:id="@+id/lbl_description"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/post_description"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/txt_description"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+    
+            <TextView
+                android:id="@+id/lbl_examples"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/post_examples"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/txt_examples"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+    
+            <TextView
+                android:id="@+id/lbl_ethimology"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/post_ethimology"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <EditText
+                android:id="@+id/txt_ethimology"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+    
+            <Button android:id="@+id/btn_post"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:background="@drawable/gaz" android:text="@string/post_gaz"
+                android:textColor="#FF8D00" android:textSize="28sp" android:layout_margin="10dp" />
+    
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>

@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class color {
         public static final int bgColor=0x7f040000;
+        public static final int blackColor=0x7f040002;
         public static final int whiteColor=0x7f040001;
     }
     public static final class drawable {
@@ -34,47 +35,64 @@ public final class R {
         public static final int tbwords=0x7f020010;
     }
     public static final class id {
-        public static final int about=0x7f080025;
-        public static final int authorDate=0x7f08001d;
-        public static final int authorURLEmail=0x7f08001e;
-        public static final int btn_comments=0x7f08001f;
+        public static final int about=0x7f080036;
+        public static final int authorDate=0x7f08002e;
+        public static final int authorURLEmail=0x7f08002f;
+        public static final int btn_comments=0x7f080030;
+        public static final int btn_post=0x7f080020;
         public static final int btn_search=0x7f08000e;
-        public static final int description=0x7f080018;
-        public static final int ethimology=0x7f08001c;
-        public static final int ethimology_title=0x7f08001b;
-        public static final int examples=0x7f08001a;
-        public static final int examples_title=0x7f080019;
-        public static final int facebook_post=0x7f080015;
+        public static final int description=0x7f080029;
+        public static final int ethimology=0x7f08002d;
+        public static final int ethimology_title=0x7f08002c;
+        public static final int examples=0x7f08002b;
+        public static final int examples_title=0x7f08002a;
+        public static final int facebook_post=0x7f080026;
         public static final int icon=0x7f080003;
         public static final int info_icon=0x7f080005;
+        public static final int lbl_description=0x7f08001b;
+        public static final int lbl_email=0x7f080013;
+        public static final int lbl_ethimology=0x7f08001e;
+        public static final int lbl_examples=0x7f080019;
+        public static final int lbl_name=0x7f080011;
+        public static final int lbl_url=0x7f080015;
+        public static final int lbl_word=0x7f080017;
         public static final int letters_layout=0x7f080001;
         public static final int mainFrame=0x7f080009;
+        public static final int nest=0x7f08001a;
         public static final int nests_layout=0x7f08000c;
-        public static final int search=0x7f080024;
+        public static final int scroller=0x7f080010;
+        public static final int search=0x7f080035;
         public static final int search_box=0x7f08000d;
         public static final int search_results_layout=0x7f08000f;
-        public static final int sendcomment=0x7f080028;
-        public static final int sendword=0x7f080022;
+        public static final int sendcomment=0x7f080039;
+        public static final int sendword=0x7f080033;
         public static final int setting=0x7f080007;
-        public static final int settings=0x7f080023;
-        public static final int settings_layout=0x7f080010;
+        public static final int settings=0x7f080034;
+        public static final int settings_layout=0x7f080021;
         public static final int subtitle=0x7f080004;
         public static final int sync_progress=0x7f08000b;
         public static final int title=0x7f080002;
         public static final int toggle=0x7f080006;
-        public static final int twitter_post=0x7f080016;
-        public static final int twitterlogin=0x7f080011;
+        public static final int twitter_post=0x7f080027;
+        public static final int twitterlogin=0x7f080022;
         public static final int txtLoading=0x7f08000a;
-        public static final int view=0x7f080026;
-        public static final int viewcomments=0x7f080027;
+        public static final int txt_description=0x7f08001c;
+        public static final int txt_email=0x7f080014;
+        public static final int txt_ethimology=0x7f08001f;
+        public static final int txt_examples=0x7f08001d;
+        public static final int txt_name=0x7f080012;
+        public static final int txt_url=0x7f080016;
+        public static final int txt_word=0x7f080018;
+        public static final int view=0x7f080037;
+        public static final int viewcomments=0x7f080038;
         public static final int web_content=0x7f080008;
         public static final int webview=0x7f080000;
-        public static final int word=0x7f080017;
-        public static final int wordcomments_layout=0x7f080012;
-        public static final int worddetails_layoutview=0x7f080014;
-        public static final int worddetails_scrollview=0x7f080013;
-        public static final int words=0x7f080021;
-        public static final int words_layout=0x7f080020;
+        public static final int word=0x7f080028;
+        public static final int wordcomments_layout=0x7f080023;
+        public static final int worddetails_layoutview=0x7f080025;
+        public static final int worddetails_scrollview=0x7f080024;
+        public static final int words=0x7f080032;
+        public static final int words_layout=0x7f080031;
     }
     public static final class layout {
         public static final int about=0x7f030000;
@@ -143,6 +161,17 @@ public final class R {
         public static final int no=0x7f05000a;
         public static final int no_comments=0x7f050008;
         public static final int no_data=0x7f050007;
+        public static final int post_description=0x7f05003e;
+        public static final int post_email=0x7f05003a;
+        public static final int post_error=0x7f050042;
+        public static final int post_ethimology=0x7f050040;
+        public static final int post_examples=0x7f05003f;
+        public static final int post_gaz=0x7f050041;
+        public static final int post_name=0x7f050039;
+        public static final int post_nest=0x7f05003d;
+        public static final int post_thanks=0x7f050043;
+        public static final int post_url=0x7f05003b;
+        public static final int post_word=0x7f05003c;
         public static final int search=0x7f050038;
         public static final int settings=0x7f050012;
         public static final int tab_letters=0x7f05000d;

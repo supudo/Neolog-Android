@@ -28,6 +28,7 @@ import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class WordComments extends TableActivity implements Runnable, SyncManagerCallbacks {
 
@@ -48,23 +49,19 @@ public class WordComments extends TableActivity implements Runnable, SyncManager
         	if (msg.getData().isEmpty())
         		LoadWordComments();
         	else {
-        		AlertDialog.Builder alertbox = new AlertDialog.Builder(WordComments.this);
         		if (msg.getData().getString("exception").equals("no-data")) {
-        			alertbox.setMessage(R.string.no_comments);
-        			alertbox.setNeutralButton(R.string.close_alertbox, new DialogInterface.OnClickListener() {
-        				public void onClick(DialogInterface arg0, int arg1) {
-        					goBack();
-        				}
-        			});
+            		Toast.makeText(getApplicationContext(), R.string.no_comments, Toast.LENGTH_SHORT).show();
+            		goBack();
         		}
         		else {
+            		AlertDialog.Builder alertbox = new AlertDialog.Builder(WordComments.this);
         			alertbox.setMessage(msg.getData().getString("exception"));
         			alertbox.setNeutralButton(R.string.close_alertbox, new DialogInterface.OnClickListener() {
         				public void onClick(DialogInterface arg0, int arg1) {
         				}
         			});
+                    alertbox.show();
         		}
-                alertbox.show();
         	}
         }
 	};

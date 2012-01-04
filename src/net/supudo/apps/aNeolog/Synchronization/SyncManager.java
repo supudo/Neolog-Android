@@ -6,6 +6,7 @@ import java.net.URLEncoder;
 
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.ContentValues;
@@ -174,6 +175,18 @@ public class SyncManager implements URLHelperCallbacks {
 		Log.d("Sync", "SearchWords ... ");
 		synchronize(ServicesNames.SEARCH_SERVICE, 0, searchQuery, 0);
 	}
+	
+	public void SendWord(Integer pNestID, String valName, String valEmail, String valURL, String valWord, String valDescription, String valExamples, String valEthimology) {
+		try {
+			Log.d("Sync", "SendWord ... ");
+			this.sendWord(pNestID, valName, valEmail, valURL, valWord, valDescription, valExamples, valEthimology);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			Log.d("Sync", "SendWord error - " + e.getMessage());
+			mDelegate.onSyncError(e);
+		}
+	}
 
 	/* ------------------------------------------
 	 * 
@@ -208,6 +221,14 @@ public class SyncManager implements URLHelperCallbacks {
 			else if (serviceId == WebServiceID.SEARCH_SERVICE) {
 				Log.d("Sync", "updateModelWithJSONObject ... search");
 				handleWords(object, "Search");
+			}
+			else if (serviceId == WebServiceID.SENDWORD_SERVICE) {
+				Log.d("Sync", "updateModelWithJSONObject ... send word - " + object.toString());
+				mDelegate.onSyncError(new Exception(object.toString()));
+			}
+			else if (serviceId == WebServiceID.SENDCOMMENT_SERVICE) {
+				Log.d("Sync", "updateModelWithJSONObject ... send comment - " + object.toString());
+				mDelegate.onSyncError(new Exception(object.toString()));
 			}
 		}
 		catch (NotFoundException e) {
@@ -283,6 +304,22 @@ public class SyncManager implements URLHelperCallbacks {
 		this.state = ServicesNames.SEARCH_SERVICE;
 		Log.d("Sync", CommonSettings.BASE_SERVICES_URL + ServicesNames.SEARCH_SERVICE + "&q=" + URLEncoder.encode(searchQuery, HTTP.UTF_8));
 		urlHelper.loadURLString(CommonSettings.BASE_SERVICES_URL + ServicesNames.SEARCH_SERVICE + "&q=" + URLEncoder.encode(searchQuery, HTTP.UTF_8), WebServiceID.SEARCH_SERVICE);
+	}
+	
+	public void sendWord(Integer pNestID, String valName, String valEmail, String valURL, String valWord, String valDescription, String valExamples, String valEthimology) throws MalformedURLException, NotFoundException, JSONException {
+		this.state = ServicesNames.SENDWORD_SERVICE;
+		Log.d("Sync", CommonSettings.BASE_SERVICES_URL + ServicesNames.SENDWORD_SERVICE);
+		JSONObject obj = new JSONObject();
+		obj.put("nest", pNestID);
+		obj.put("added_by", valName);
+		obj.put("added_by_email", valEmail);
+		obj.put("added_by_url", valURL);
+		obj.put("word", valWord);
+		obj.put("word_desc", valDescription);
+		obj.put("example", valExamples);
+		obj.put("ethimology", valEthimology);
+		String postData = obj.toString();
+		urlHelper.postData(CommonSettings.BASE_SERVICES_URL + ServicesNames.SENDWORD_SERVICE, postData, WebServiceID.SENDWORD_SERVICE);
 	}
 
 	/* ------------------------------------------
