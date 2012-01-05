@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name" >
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="false">
         <activity android:label="@string/app_name" android:name=".NeologActivity" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,7 @@
         <activity android:name="net.supudo.apps.aNeolog.Words.SearchResults" android:label="@string/app_name" android:theme="@style/Theme.NLTheme"></activity>
         <activity android:name="net.supudo.apps.aNeolog.Misc.Settings" android:label="@string/app_name" android:theme="@style/Theme.NLTheme"></activity>
         <activity android:name="net.supudo.apps.aNeolog.Misc.About" android:label="@string/app_name" android:theme="@style/Theme.NLTheme"></activity>
+        <activity android:name="net.supudo.apps.aNeolog.SocNet.Twitter.TwitterApp" android:label="@string/app_name" android:theme="@style/Theme.NLTheme"></activity>
         <activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation"/>
     </application>
 

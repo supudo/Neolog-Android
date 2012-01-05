@@ -187,6 +187,18 @@ public class SyncManager implements URLHelperCallbacks {
 			mDelegate.onSyncError(e);
 		}
 	}
+	
+	public void SendComment(Integer wordID, String valName, String valComment) {
+		try {
+			Log.d("Sync", "SendComment ... ");
+			this.sendComment(wordID, valName, valComment);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			Log.d("Sync", "SendComment error - " + e.getMessage());
+			mDelegate.onSyncError(e);
+		}
+	}
 
 	/* ------------------------------------------
 	 * 
@@ -320,6 +332,17 @@ public class SyncManager implements URLHelperCallbacks {
 		obj.put("ethimology", valEthimology);
 		String postData = obj.toString();
 		urlHelper.postData(CommonSettings.BASE_SERVICES_URL + ServicesNames.SENDWORD_SERVICE, postData, WebServiceID.SENDWORD_SERVICE);
+	}
+	
+	public void sendComment	(Integer wordID, String valName, String valComment) throws MalformedURLException, NotFoundException, JSONException {
+		this.state = ServicesNames.SENDCOMMENT_SERVICE;
+		Log.d("Sync", CommonSettings.BASE_SERVICES_URL + ServicesNames.SENDCOMMENT_SERVICE);
+		JSONObject obj = new JSONObject();
+		obj.put("w", wordID);
+		obj.put("author", valName);
+		obj.put("comment", valComment);
+		String postData = obj.toString();
+		urlHelper.postData(CommonSettings.BASE_SERVICES_URL + ServicesNames.SENDCOMMENT_SERVICE, postData, WebServiceID.SENDCOMMENT_SERVICE);
 	}
 
 	/* ------------------------------------------

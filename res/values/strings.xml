@@ -68,6 +68,7 @@
     <string name="post_gaz">Газ!</string>
     <string name="post_error">Изпуснали сте някои от задължителните полета.</string>
     <string name="post_thanks">Благодарим ви!</string>
+    <string name="post_comment">Вашият коментар...</string>
 </resources>
 <!-- 
 
@@ -103,18 +104,6 @@
 "bg_Facebook.PublishOK" = "Обяват беше публикувана на вашата стена.";
 "bg_Facebook.PublishError" = "Възникна проблем при публикуване на вашата стена.";
 "bg_l_dr" = "др.";
-"bg_Tabbar_0" = "Думи";
-"bg_Tabbar_1" = "Изпрати дума";
-"bg_Tabbar_2" = "Настройки";
-"bg_SWName" = "Име/псевдоним:";
-"bg_SWEmail" = "Email:";
-"bg_SWURL" = "Вашият сайт:";
-"bg_SWWord" = "Думата:";
-"bg_SWNest" = "Гнездо:";
-"bg_SWDescription" = "Какво значи:";
-"bg_SWExample" = "Примери:";
-"bg_SWEthimology" = "Етимология (произход):";
-"bg_SWNestChoose" = "- - Избери - -";
 
 
 -->

@@ -12,7 +12,7 @@ import android.util.Log;
 public enum CommonSettings {
 	INSTANCE;
 	
-	public static final String BASE_SERVICES_URL = "http://www.neolog.bg/service_json";
+	public static final String BASE_SERVICES_URL = "http://www.neolog.bg/service_json.php";
 	public static final String HOST_NAME = "www.neolog.bg";
 	public static final String PREFS_FILE_NAME = "NelogPreferences";
 	public static String AppCallbackURI = "neologandroid";
@@ -23,7 +23,7 @@ public enum CommonSettings {
 	
 	public static String GoogleAddsAppID = "a14ef08a8f6cc59";
 	public static String FacebookAppID = "269046193111640";
-	public static String TwitterConsumerKey = "bpPhvYVczLnd2ZntLNbcQ", TwitterConsumerSecret = "HbAvScLfdkAR9ZhW9j2LWQmWNk60J4lYHrxLOeXgQ";
+	public static String TwitterConsumerKey = "KvIUb7SS9i4FJhHeLzo4IQ", TwitterConsumerSecret = "hq7L3zkKJTY8IJ9HyesJ0t4fd8cbkIHdAC3iyvoJB70";
 	public static String TwitterCallbackURI = AppCallbackURI + "://twitter";
 	
 	public static final String IEXTRA_AUTH_URL = "auth_url";

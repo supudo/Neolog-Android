@@ -84,6 +84,10 @@
                    android:layout_width="fill_parent" android:layout_height="wrap_content"
                    android:background="@drawable/gaz" android:textColor="#FFFFFF" android:layout_marginTop="20dp" />
 
+                <Button android:id="@+id/btn_send_comment" android:text="@string/contextmenu_sendcomments"
+                   android:layout_width="fill_parent" android:layout_height="wrap_content"
+                   android:background="@drawable/gaz" android:textColor="#FFFFFF" android:layout_marginTop="20dp" />
+
         </LinearLayout>
 
     </ScrollView>

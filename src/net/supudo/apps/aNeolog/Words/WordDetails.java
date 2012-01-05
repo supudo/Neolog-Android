@@ -57,7 +57,7 @@ public class WordDetails extends MainActivity {
 	private DataHelper dbHelper;
 	private WordModel wordEnt;
 
-    private Button fbPostButton, twitterPostButton, viewCommentButton;
+    private Button fbPostButton, twitterPostButton, viewCommentButton, sendCommentButton;
 	private TextView txtWord, txtDescription, txtExamples, txtEthimology, txtAuthorDate, txtAuthorURLEmail;
 	private TextView txtExamplesLabel, txtEthimologyLabel;
 
@@ -85,6 +85,7 @@ public class WordDetails extends MainActivity {
 		fbPostButton = (Button)findViewById(R.id.facebook_post);
 		twitterPostButton = (Button)findViewById(R.id.twitter_post);
 		viewCommentButton = (Button)findViewById(R.id.btn_comments);
+		sendCommentButton = (Button)findViewById(R.id.btn_send_comment);
 
 		txtWord = (TextView)findViewById(R.id.word);
 		txtDescription = (TextView)findViewById(R.id.description);
@@ -116,6 +117,12 @@ public class WordDetails extends MainActivity {
         viewCommentButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
             	ViewComments();
+            }
+        });
+
+        sendCommentButton.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	SendComment();
             }
         });
 	}
@@ -236,6 +243,12 @@ public class WordDetails extends MainActivity {
 		intent.putExtra("wordid", wordID);
 		startActivity(intent);
     }
+	
+	private void SendComment() {
+		Intent intent = new Intent().setClass(WordDetails.this, SendComment.class);
+		intent.putExtra("wordid", wordID);
+		startActivity(intent);
+	}
 
 	/* ------------------------------------------
 	 * 
