@@ -6,6 +6,7 @@
     <string name="menu_SendWord">Изпрати дума</string>
     <string name="menu_Settings">Настройки</string>
     <string name="menu_Search">Търси</string>
+    <string name="menu_SyncAgain">Sync</string>
     <string name="menu_About">За Neolog</string>
     <string name="no_data">Липсват данни.</string>
     <string name="no_comments">Няма коментари.</string>

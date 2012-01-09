@@ -42,11 +42,22 @@ public class TableActivity extends ListActivity {
 	        	mIntent = new Intent().setClass(this, Search.class);
             	startActivityForResult(mIntent, 0);
 	        	break;
+	        case R.id.syncagain:
+	        	SyncAgain();
+	        	break;
 	        case R.id.about:
 	        	mIntent = new Intent().setClass(this, About.class);
             	startActivityForResult(mIntent, 0);
 	        	break;
         }
         return true;
+    }
+    
+    private void SyncAgain() {
+    	CommonSettings.lastSyncDate = null;
+    	CommonSettings.ClearCache(this);
+    	Intent mIntent = new Intent().setClass(this, NeologActivity.class);
+    	mIntent.putExtra("forceSync", true);
+    	startActivityForResult(mIntent, 0);
     }
 }

@@ -4,5 +4,6 @@
     <item android:id="@+id/sendword" android:title="@string/menu_SendWord" android:icon="@drawable/tbsendword"></item>
     <item android:id="@+id/settings" android:title="@string/menu_Settings" android:icon="@drawable/tbsettings"></item>
     <item android:id="@+id/search" android:title="@string/menu_Search" android:icon="@drawable/tbsearch"></item>
+    <item android:id="@+id/syncagain" android:title="@string/menu_SyncAgain" android:icon="@drawable/tbsyncagain"></item>
     <item android:id="@+id/about" android:title="@string/menu_About" android:icon="@drawable/tbabout"></item>
 </menu>
