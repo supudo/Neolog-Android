@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -332,33 +331,40 @@ public class WordDetails extends MainActivity {
 	private void PostOnFacebook() {
     	this.selectedOp = SocNetOp.SocNetOpFacebook;
          try {
-        	 String response = engineFacebook.request("me");
-        	 
-        	 JSONObject attachment = new JSONObject();
-        	 attachment.put("name", wordEnt.Word);
-        	 attachment.put("href", "http://www.neolog.bg/word/" + wordEnt.WordID);
-        	 attachment.put("caption", wordEnt.Example);
-        	 attachment.put("description", wordEnt.Description);
-
         	 Bundle params = new Bundle();
-        	 params.putString("attachment", attachment.toString());
+        	 params.putString("name", wordEnt.Word);
+        	 params.putString("picture", "http://neolog.bg/images/ineolog.png");
+        	 params.putString("link", "http://www.neolog.bg/word/" + wordEnt.WordID);
+        	 params.putString("caption", wordEnt.Example);
+        	 params.putString("description", wordEnt.Description);
 
-        	 JSONObject actionLink = new JSONObject();
-        	 actionLink.put("text", "Neolog.bg");
-        	 actionLink.put("href", "http://www.neolog.bg/");
-        	 
-        	 JSONArray jasonarray = new JSONArray().put(actionLink);
-        	 params.putString("action_links", jasonarray.toString());
-        	 
-        	 engineFacebook.dialog(WordDetails.this, "stream.publish", params, new FBDialogListener());
-        	 if (response == null || response.equals("") || response.equals("false"))
-        		 Log.v("WordDetails", "Blank response");
-        	 else
-        		 Log.v("WordDetails", "got response: " + response);
+        	 engineFacebook.dialog(WordDetails.this, "feed", params, new FBDialogListener());
          }
          catch(Exception e) {
              e.printStackTrace();
          }
+    }
+
+    public class FBRequestListener extends BaseRequestListener {
+        public void onComplete(final String response, final Object state) {
+            try {
+                Log.d("WordDetails", "Response: " + response.toString());
+                JSONObject json = Util.parseJson(response);
+                final String name = json.getString("name");
+                Log.d("OfferDetails", "Logged in user " + name);
+                WordDetails.this.runOnUiThread(new Runnable() {
+                    public void run() {
+                    	PostOnFacebook();
+                    }
+                });
+            }
+            catch (JSONException e) {
+                Log.w("WordDetails", "JSON Error in response");
+            }
+            catch (FacebookError e) {
+                Log.w("WordDetails", "Facebook Error: " + e.getMessage());
+            }
+        }
     }
 	
 	public class FBAuthListener implements AuthListener {
@@ -366,6 +372,7 @@ public class WordDetails extends MainActivity {
         	SessionStore.save(engineFacebook, WordDetails.this);
         }
         public void onAuthFail(String error) {
+            Log.w("WordDetails", "FBAuthListener error - " + error);
         }
     }
 
@@ -381,9 +388,13 @@ public class WordDetails extends MainActivity {
         public void onComplete(final String response, final Object state) {
             try {
             	Log.d("WordDetails", "Facebook response - " + response);
-                JSONObject json = Util.parseJson(response);
-                String message = json.getString("message");
-                Log.d("WordDetails", "Facebook post success - " + message);
+            	if (Boolean.parseBoolean(response)) {
+	                JSONObject json = Util.parseJson(response);
+	                String message = json.getString("message");
+	                Log.d("WordDetails", "Facebook post success - " + message);
+            	}
+            	else
+            		Log.d("OfferDetails", "Facebook post success, but result is 'false'!");
             }
             catch (JSONException e) {
             	e.printStackTrace();

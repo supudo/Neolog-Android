@@ -1,10 +1,9 @@
 package net.supudo.apps.aNeolog.SocNet.Facebook;
 
-import net.supudo.apps.aNeolog.SocNet.Facebook.BaseRequestListener;
+import net.supudo.apps.aNeolog.R;
 import net.supudo.apps.aNeolog.SocNet.Facebook.SessionEvents.AuthListener;
 import net.supudo.apps.aNeolog.SocNet.Facebook.SessionEvents.LogoutListener;
 
-import net.supudo.apps.aNeolog.R;
 import com.facebook.android.AsyncFacebookRunner;
 import com.facebook.android.DialogError;
 import com.facebook.android.Facebook;
@@ -44,7 +43,8 @@ public class LoginButton extends ImageButton {
     	init(activity, fb, new String[] {});
     }
     
-    public void init(final Activity activity, final Facebook fb, final String[] permissions) {
+    public void init(final Activity activity, final Facebook fb,
+                     final String[] permissions) {
         mActivity = activity;
         mFb = fb;
         mPermissions = permissions;
@@ -52,7 +52,9 @@ public class LoginButton extends ImageButton {
         
         setBackgroundColor(Color.TRANSPARENT);
         setAdjustViewBounds(true);
-        setImageResource(fb.isSessionValid() ? R.drawable.fb_logout_button : R.drawable.fb_login_button);
+        setImageResource(fb.isSessionValid() ?
+                         R.drawable.fb_logout_button : 
+                         R.drawable.fb_login_button);
         drawableStateChanged();
         
         SessionEvents.addAuthListener(mSessionListener);
@@ -67,9 +69,10 @@ public class LoginButton extends ImageButton {
                 SessionEvents.onLogoutBegin();
                 AsyncFacebookRunner asyncRunner = new AsyncFacebookRunner(mFb);
                 asyncRunner.logout(getContext(), new LogoutRequestListener());
+            } else {
+                mFb.authorize(mActivity, mPermissions,
+                              new LoginDialogListener());
             }
-            else
-                mFb.authorize(mActivity, mPermissions, new LoginDialogListener());
         }
     }
 

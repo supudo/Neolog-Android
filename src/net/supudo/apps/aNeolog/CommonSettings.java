@@ -21,9 +21,9 @@ public enum CommonSettings {
 	public static boolean ShowBanners = false;
 	public static String DefaultDateFormat = "yyyy-MM-dd HH:mm:ss";
 	
-	public static String GoogleAddsAppID = "a14ef08a8f6cc59";
-	public static String FacebookAppID = "269046193111640";
-	public static String TwitterConsumerKey = "KvIUb7SS9i4FJhHeLzo4IQ", TwitterConsumerSecret = "hq7L3zkKJTY8IJ9HyesJ0t4fd8cbkIHdAC3iyvoJB70";
+	public static String GoogleAddsAppID = "";
+	public static String FacebookAppID = "";
+	public static String TwitterConsumerKey = "", TwitterConsumerSecret = "";
 	public static String TwitterCallbackURI = AppCallbackURI + "://twitter";
 	
 	public static final String IEXTRA_AUTH_URL = "auth_url";
