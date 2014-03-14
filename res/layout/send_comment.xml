@@ -2,8 +2,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="#29435E">
 
     <EditText
@@ -16,8 +16,8 @@
 
     <EditText
         android:id="@+id/txt_comment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_weight="1"
         android:hint="@string/post_comment"
         android:layout_below="@+id/txt_name"
@@ -26,7 +26,7 @@
     <LinearLayout
         android:layout_height="wrap_content"
         android:id="@+id/button_layout"
-        android:layout_width="match_parent">
+        android:layout_width="fill_parent">
 
         <Button android:id="@+id/btn_post"
             android:layout_width="fill_parent" android:layout_height="wrap_content"
